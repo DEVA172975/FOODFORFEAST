@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Food Delivery App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f8f8;
+        }
+        .navbar {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 0 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-brand p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .nav-info a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+        .nav-signup {
+            display: flex;
+            align-items: center;
+        }
+        .nav-signup img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .btn-signup {
+            background-color: #ff6347;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .poster {
+            width: 80%;
+            height: 300px;
+            margin: 40px 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .poster-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .poster-info h2, .poster-info p {
+            width: 60%;
+        }
+        .expore, .dishes-container {
+            width: 80%;
+            text-align: center;
+        }
+        .expore-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .food-item {
+            width: 150px;
+            text-align: center;
+            margin: 10px;
+        }
+        .food-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .food-item button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .dishes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .dish {
+            width: 280px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        .dish img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .dish-info {
+            padding: 10px;
+        }
+        @media only screen and (max-width: 600px) {
+            .nav-info { display: none; }
+            .poster-info h2, .poster-info p { width: 80%; }
+        }
+        .footer {
+            width: 100%;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+        }
+        .footer-content p {
+            margin: 5px 0;
+        }
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+        .footer-nav {
+            margin-top: 10px;
+        }
+        .footer-nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        .html{
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand"><p>FAST FEAST</p></div>
+        <div class="nav-info">
+            <a href="#">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact us</a>
+        </div>
+        <div class="nav-signup">
+            <img src="images (6).jpeg" alt="Profile">
+            <button class="btn-signup">Sign up</button>
+        </div>
+    </div>
+    <div class="poster">
+        <img src="logo.jpg" alt="Poster">
+        <div class="poster-info">
+            <h2>Order your favorite food here</h2>
+            <p>Choose from a diverse menu crafted with the finest ingredients.</p>
+            <button class="btn-signup">View Menu</button>
+        </div>
+    </div>
+    <div class="expore" id="menu">
+        <h2>Explore our menu</h2>
+        <p>Choose from a delectable array of dishes.</p>
+        <div class="expore-items"></div>
+    </div>
+    <div class="dishes-container">
+        <h2>Top dishes near you</h2>
+        <div class="dishes">
+            
+        </div>
+    </div>
+    <script>
+        const categories = {
+            "Salad": [
+                { img: "m1.jpg", price: "₹150" },
+                { img: "m2.jpg", price: "₹180" },
+                { img: "m3.jpg", price: "₹120" },
+                { img: "m4.jpg", price: "₹200" },
+                { img: "m5.jpg", price: "₹170" }
+            ],
+            "Sandveg": [
+                { img: "s1.jpg", price: "₹90" },
+                { img: "s2.jpg", price: "₹110" },
+                { img: "s3.jpg", price: "₹130" },
+                { img: "s4.jpg", price: "₹100" },
+                { img: "s5.jpg", price: "₹140" }
+            ],
+            "Deserts": [
+                { img: "d1.jpg", price: "₹80" },
+                { img: "d2.jpg", price: "₹100" },
+                { img: "d3.jpg", price: "₹150" },
+                { img: "d4.jpg", price: "₹120" },
+                { img: "d5.jpg", price: "₹200" }
+            ],
+            "Soft Drinks": [
+                { img: "sd1.jpg", price: "₹50" },
+                { img: "sd2.jpg", price: "₹60" },
+                { img: "sd3.jpg", price: "₹70" },
+                { img: "sd4.jpg", price: "₹40" },
+                { img: "sd5.jpg", price: "₹80" }
+            ]
+        };
+        
+        let htmlData = "";
+        for (let category in categories) {
+            htmlData += `
+                <div class="food-item">
+                    <img src="${categories[category][0].img}" alt="${category}">
+                    <button onclick="showDishes('${category}')">${category}</button>
+                </div>`;
+        }
+        document.querySelector(".expore-items").innerHTML = htmlData;
+        
+        function showDishes(category) {
+            const dishesContainer = document.querySelector(".dishes");
+            dishesContainer.innerHTML = "";
+            categories[category].forEach((dish, index) => {
+                dishesContainer.innerHTML += `
+                <div class="dish">
+                    <img src="${dish.img}" alt="${category} Dish">
+                    <div class="dish-info">
+                        <h4>${category} ${index + 1}</h4>
+                        <p>Price: ${dish.price}</p>
+                    </div>
+                </div>`;
+            });
+        }
+    </script>
+    
+      <footer class="footer" id="contact">
+        <div class="footer-content">
+            <p>Contact us: <a href="mailto:contact@fooddelivery.com">FASTFEAST@gmail.com</a></p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Plot No-5,Ponniyamman Koil 2nd street,Near post office,SHOOLINGANALLUR</p>
+            <div class="footer-nav">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
